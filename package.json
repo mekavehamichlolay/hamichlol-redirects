@@ -1,0 +1,20 @@
+{
+  "name": "hamichlol-redirects",
+  "version": "1.0.0",
+  "description": "",
+  "main": "checkRedirectsFromHamichlol.js",
+  "scripts": {
+    "start": "node checkRedirectsFromHamichlol"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mekavehamichlolay/hamichlol-redirects.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mekavehamichlolay/hamichlol-redirects/issues"
+  },
+  "homepage": "https://github.com/mekavehamichlolay/hamichlol-redirects#readme"
+}
