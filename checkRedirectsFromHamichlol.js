@@ -20,8 +20,13 @@ const matchLists = (wikipediaArticleList, hamichlolRedirectList) => {
  * @returns {string[]} the list from the file in array format
  */
 const turnListFromFileInToArray = (fileName) => {
-  const list = fs.readFileSync(fileName, { encoding: "utf-8" });
-  return list.split("\n");
+  try {
+    const list = fs.readFileSync(fileName, { encoding: "utf-8" });
+    return list.split("\n");
+  } catch (error) {
+    console.log(error);
+    process.exit(1);
+  }
 };
 /**
  *
@@ -52,4 +57,6 @@ const matchedList = matchLists(wikiList, hamichlolList);
 
 if (matchedList.length > 0) {
   saveList(matchedList, fileToSave);
+} else {
+  console.log("got no atricles to save");
 }
