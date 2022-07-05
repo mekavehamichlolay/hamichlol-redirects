@@ -5,13 +5,17 @@ const fs = require("fs");
  *
  * @param {string[]} wikipediaArticleList
  * @param {string[]} hamichlolRedirectList
+ * @param {string[]} excludeList
  * @returns {string[]} array of articles in wikipedia which R redirects in hamichlol
  */
-const matchLists = (wikipediaArticleList, hamichlolRedirectList) => {
+const matchLists = (wikipediaArticleList, hamichlolRedirectList, excludeList) => {
   const articleFromWikipedia = wikipediaArticleList.filter(
     (article) => hamichlolRedirectList.indexOf(article) + 1
   );
-  return articleFromWikipedia;
+  if (articleFromWikipedia.length <= 0 || excludeFileName.length <= 0) {
+    return articleFromWikipedia;
+  }
+  return articleFromWikipedia.filter(article => !(excludeList.indexOf(article) + 1));
 };
 
 /**
@@ -48,12 +52,14 @@ const saveList = (listToSave, fileNameToSave) => {
 
 const wikiArticleFile = "";
 const hamichlolRedirectFile = "";
+const excludeFileName = "";
 const fileToSave = "";
 
 const wikiList = turnListFromFileInToArray(wikiArticleFile);
 const hamichlolList = turnListFromFileInToArray(hamichlolRedirectFile);
+const excludeList = turnListFromFileInToArray(excludeFileName);
 
-const matchedList = matchLists(wikiList, hamichlolList);
+const matchedList = matchLists(wikiList, hamichlolList, excludeList);
 
 if (matchedList.length > 0) {
   saveList(matchedList, fileToSave);
